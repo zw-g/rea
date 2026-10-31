@@ -389,9 +389,11 @@ export const joinInterfaceBuilderDispatch = (
         id: functionId,
         kind: "function",
         name: `${implementation.class_name} ${selector}`,
+        // Dispatch metadata publishes no implementation file offset;
+        // `implementation.location` may be its encoded method record.
         location: {
           address: implementation.implementation_address,
-          file_offset: implementation.location.file_offset,
+          file_offset: null,
         },
         attributes: {
           class_name: implementation.class_name,

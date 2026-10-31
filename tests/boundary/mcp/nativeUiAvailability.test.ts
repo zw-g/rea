@@ -533,6 +533,10 @@ const assertSuccessfulRoute = (
         to: `native:function:${handlerAddress}`,
       }),
     );
+    expect(
+      trace.nodes.find(({ id }) => id === `native:function:${handlerAddress}`)
+        ?.location,
+    ).toEqual({ address: handlerAddress, file_offset: null });
     expect(calls).toContain("decode_interface_builder");
     expect(calls).toContain(
       scenario.name === "authored-ui-direct"

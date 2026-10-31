@@ -371,7 +371,9 @@ bounded typed call references. Direct references, resolved indirect references,
 ambiguous candidates, inferred untyped provider callees and targetless call
 sites remain distinct. A static route does not establish runtime reachability.
 Swift/closure dispatch requires resolved static references; unavailable ABI
-forms remain unknown.
+forms remain unknown. A matched handler node reports the implementation
+address with an unknown file offset; an encoded method record keeps its own
+address and file offset in that node's Evidence.
 
 Incomplete reference kinds do not discard known typed calls or partial
 provider call references. A `provider_call` with `observed` resolution retains
